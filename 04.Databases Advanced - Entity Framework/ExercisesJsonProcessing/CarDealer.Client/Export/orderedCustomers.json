@@ -1,0 +1,598 @@
+[
+  {
+    "Id": 29,
+    "Name": "Louann Holzworth",
+    "BirthDate": "1960-10-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "Id": 28,
+        "CarId": 197,
+        "CustomerId": 29,
+        "Discount": 0.1
+      },
+      {
+        "Id": 30,
+        "CarId": 53,
+        "CustomerId": 29,
+        "Discount": 0.4
+      },
+      {
+        "Id": 34,
+        "CarId": 269,
+        "CustomerId": 29,
+        "Discount": 0.5
+      },
+      {
+        "Id": 38,
+        "CarId": 309,
+        "CustomerId": 29,
+        "Discount": 0.5
+      }
+    ]
+  },
+  {
+    "Id": 28,
+    "Name": "Donnetta Soliz",
+    "BirthDate": "1963-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 11,
+        "CarId": 40,
+        "CustomerId": 28,
+        "Discount": 0.55
+      },
+      {
+        "Id": 22,
+        "CarId": 180,
+        "CustomerId": 28,
+        "Discount": 0.1
+      },
+      {
+        "Id": 26,
+        "CarId": 240,
+        "CustomerId": 28,
+        "Discount": 0.35
+      },
+      {
+        "Id": 52,
+        "CarId": 212,
+        "CustomerId": 28,
+        "Discount": 0.25
+      }
+    ]
+  },
+  {
+    "Id": 17,
+    "Name": "Rema Revelle",
+    "BirthDate": "1970-05-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 46,
+        "CarId": 128,
+        "CustomerId": 17,
+        "Discount": 0.25
+      }
+    ]
+  },
+  {
+    "Id": 16,
+    "Name": "Carri Knapik",
+    "BirthDate": "1972-02-02T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 13,
+        "CarId": 162,
+        "CustomerId": 16,
+        "Discount": 0.25
+      },
+      {
+        "Id": 59,
+        "CarId": 67,
+        "CustomerId": 16,
+        "Discount": 0.15000000000000002
+      }
+    ]
+  },
+  {
+    "Id": 27,
+    "Name": "Garret Capron",
+    "BirthDate": "1975-07-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "Id": 7,
+        "CarId": 185,
+        "CustomerId": 27,
+        "Discount": 0.05
+      },
+      {
+        "Id": 12,
+        "CarId": 214,
+        "CustomerId": 27,
+        "Discount": 0.1
+      }
+    ]
+  },
+  {
+    "Id": 8,
+    "Name": "Teddy Hobby",
+    "BirthDate": "1975-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 3,
+        "CarId": 304,
+        "CustomerId": 8,
+        "Discount": 0.45
+      },
+      {
+        "Id": 24,
+        "CarId": 108,
+        "CustomerId": 8,
+        "Discount": 0.45
+      },
+      {
+        "Id": 27,
+        "CarId": 129,
+        "CustomerId": 8,
+        "Discount": 0.15000000000000002
+      },
+      {
+        "Id": 40,
+        "CarId": 270,
+        "CustomerId": 8,
+        "Discount": 0.35
+      }
+    ]
+  },
+  {
+    "Id": 10,
+    "Name": "Audrea Cardinal",
+    "BirthDate": "1976-10-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "Id": 6,
+        "CarId": 253,
+        "CustomerId": 10,
+        "Discount": 0.3
+      },
+      {
+        "Id": 25,
+        "CarId": 64,
+        "CustomerId": 10,
+        "Discount": 0.4
+      },
+      {
+        "Id": 39,
+        "CarId": 137,
+        "CustomerId": 10,
+        "Discount": 0.05
+      }
+    ]
+  },
+  {
+    "Id": 11,
+    "Name": "Francis Mckim",
+    "BirthDate": "1977-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 1,
+        "CarId": 108,
+        "CustomerId": 11,
+        "Discount": 0.35
+      },
+      {
+        "Id": 9,
+        "CarId": 287,
+        "CustomerId": 11,
+        "Discount": 0.15000000000000002
+      },
+      {
+        "Id": 32,
+        "CarId": 273,
+        "CustomerId": 11,
+        "Discount": 0.55
+      }
+    ]
+  },
+  {
+    "Id": 14,
+    "Name": "Brett Brickley",
+    "BirthDate": "1980-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 18,
+        "CarId": 319,
+        "CustomerId": 14,
+        "Discount": 0.45
+      },
+      {
+        "Id": 35,
+        "CarId": 353,
+        "CustomerId": 14,
+        "Discount": 0.25
+      },
+      {
+        "Id": 41,
+        "CarId": 296,
+        "CustomerId": 14,
+        "Discount": 0.1
+      }
+    ]
+  },
+  {
+    "Id": 15,
+    "Name": "Kristian Engberg",
+    "BirthDate": "1981-10-03T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "Id": 56,
+        "CarId": 4,
+        "CustomerId": 15,
+        "Discount": 0.1
+      }
+    ]
+  },
+  {
+    "Id": 26,
+    "Name": "Hipolito Lamoreaux",
+    "BirthDate": "1982-08-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 8,
+        "CarId": 82,
+        "CustomerId": 26,
+        "Discount": 0.15000000000000002
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Name": "Zada Attwood",
+    "BirthDate": "1982-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 55,
+        "CarId": 63,
+        "CustomerId": 4,
+        "Discount": 0.45
+      }
+    ]
+  },
+  {
+    "Id": 25,
+    "Name": "Sylvie Mcelravy",
+    "BirthDate": "1983-10-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 7,
+    "Name": "Rico Peer",
+    "BirthDate": "1984-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 29,
+        "CarId": 92,
+        "CustomerId": 7,
+        "Discount": 0.25
+      },
+      {
+        "Id": 44,
+        "CarId": 311,
+        "CustomerId": 7,
+        "Discount": 0.05
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Name": "Hai Everton",
+    "BirthDate": "1985-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 31,
+        "CarId": 315,
+        "CustomerId": 5,
+        "Discount": 0.15000000000000002
+      },
+      {
+        "Id": 48,
+        "CarId": 111,
+        "CustomerId": 5,
+        "Discount": 0.55
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Name": "Lino Subia",
+    "BirthDate": "1985-12-21T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "Id": 4,
+        "CarId": 9,
+        "CustomerId": 6,
+        "Discount": 0.2
+      },
+      {
+        "Id": 15,
+        "CarId": 108,
+        "CustomerId": 6,
+        "Discount": 0.0
+      },
+      {
+        "Id": 20,
+        "CarId": 110,
+        "CustomerId": 6,
+        "Discount": 0.3
+      },
+      {
+        "Id": 21,
+        "CarId": 305,
+        "CustomerId": 6,
+        "Discount": 0.05
+      }
+    ]
+  },
+  {
+    "Id": 24,
+    "Name": "Jimmy Grossi",
+    "BirthDate": "1986-07-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 33,
+        "CarId": 162,
+        "CustomerId": 24,
+        "Discount": 0.1
+      },
+      {
+        "Id": 54,
+        "CarId": 118,
+        "CustomerId": 24,
+        "Discount": 0.15000000000000002
+      },
+      {
+        "Id": 58,
+        "CarId": 261,
+        "CustomerId": 24,
+        "Discount": 0.1
+      }
+    ]
+  },
+  {
+    "Id": 12,
+    "Name": "Carole Witman",
+    "BirthDate": "1987-10-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "Id": 50,
+        "CarId": 161,
+        "CustomerId": 12,
+        "Discount": 0.0
+      }
+    ]
+  },
+  {
+    "Id": 13,
+    "Name": "Oren Perlman",
+    "BirthDate": "1988-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 42,
+        "CarId": 348,
+        "CustomerId": 13,
+        "Discount": 0.05
+      },
+      {
+        "Id": 43,
+        "CarId": 151,
+        "CustomerId": 13,
+        "Discount": 0.55
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Name": "Marcelle Griego",
+    "BirthDate": "1990-10-04T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 10,
+        "CarId": 243,
+        "CustomerId": 3,
+        "Discount": 0.1
+      },
+      {
+        "Id": 14,
+        "CarId": 72,
+        "CustomerId": 3,
+        "Discount": 0.35
+      },
+      {
+        "Id": 19,
+        "CarId": 236,
+        "CustomerId": 3,
+        "Discount": 0.25
+      },
+      {
+        "Id": 23,
+        "CarId": 214,
+        "CustomerId": 3,
+        "Discount": 0.45
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Name": "Natalie Poli",
+    "BirthDate": "1990-10-04T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "Id": 2,
+        "CarId": 348,
+        "CustomerId": 2,
+        "Discount": 0.05
+      },
+      {
+        "Id": 16,
+        "CarId": 194,
+        "CustomerId": 2,
+        "Discount": 0.4
+      },
+      {
+        "Id": 47,
+        "CarId": 347,
+        "CustomerId": 2,
+        "Discount": 0.2
+      }
+    ]
+  },
+  {
+    "Id": 19,
+    "Name": "Yvonne Mccalla",
+    "BirthDate": "1992-03-02T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 45,
+        "CarId": 133,
+        "CustomerId": 19,
+        "Discount": 0.15000000000000002
+      }
+    ]
+  },
+  {
+    "Id": 30,
+    "Name": "Ann Mcenaney",
+    "BirthDate": "1992-03-02T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 37,
+        "CarId": 358,
+        "CustomerId": 30,
+        "Discount": 0.05
+      }
+    ]
+  },
+  {
+    "Id": 21,
+    "Name": "Cinthia Lasala",
+    "BirthDate": "1992-11-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 5,
+        "CarId": 249,
+        "CustomerId": 21,
+        "Discount": 0.35
+      },
+      {
+        "Id": 17,
+        "CarId": 265,
+        "CustomerId": 21,
+        "Discount": 0.55
+      },
+      {
+        "Id": 51,
+        "CarId": 250,
+        "CustomerId": 21,
+        "Discount": 0.25
+      }
+    ]
+  },
+  {
+    "Id": 1,
+    "Name": "Emmitt Benally",
+    "BirthDate": "1993-11-20T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 49,
+        "CarId": 246,
+        "CustomerId": 1,
+        "Discount": 0.1
+      },
+      {
+        "Id": 53,
+        "CarId": 283,
+        "CustomerId": 1,
+        "Discount": 0.05
+      },
+      {
+        "Id": 57,
+        "CarId": 212,
+        "CustomerId": 1,
+        "Discount": 0.45
+      }
+    ]
+  },
+  {
+    "Id": 20,
+    "Name": "Nisha Markwell",
+    "BirthDate": "1994-04-04T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 23,
+    "Name": "Faustina Burgher",
+    "BirthDate": "1994-06-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 18,
+    "Name": "Taina Achenbach",
+    "BirthDate": "1994-10-01T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": []
+  },
+  {
+    "Id": 9,
+    "Name": "Johnette Derryberry",
+    "BirthDate": "1995-10-01T00:00:00",
+    "IsYoungDriver": true,
+    "Sales": [
+      {
+        "Id": 60,
+        "CarId": 75,
+        "CustomerId": 9,
+        "Discount": 0.15000000000000002
+      }
+    ]
+  },
+  {
+    "Id": 22,
+    "Name": "Daniele Zarate",
+    "BirthDate": "1995-10-05T00:00:00",
+    "IsYoungDriver": false,
+    "Sales": [
+      {
+        "Id": 36,
+        "CarId": 69,
+        "CustomerId": 22,
+        "Discount": 0.0
+      }
+    ]
+  }
+]
