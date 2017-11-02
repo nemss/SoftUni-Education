@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.SumMatrixElements", "1.SumMatrixElements\1.SumMatrixElements.csproj", "{D2CAA4A3-D229-4647-A4A5-A4D53F7CDE18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.1SumMatrixElements", "1.1SumMatrixElements\1.1SumMatrixElements.csproj", "{745D7071-F9DC-46F2-8ECE-7F7E618124B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.MaximumSumOf2x2Submatrix", "2.MaximumSumOf2x2Submatrix\2.MaximumSumOf2x2Submatrix.csproj", "{0A12B56E-ABF7-461B-BB11-DBA359615B5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.GroupNumbers", "3.GroupNumbers\3.GroupNumbers.csproj", "{6B53CBC4-258F-4D5F-AB43-1A90D2651B9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.PascalTriangle", "4.PascalTriangle\4.PascalTriangle.csproj", "{1D6E3545-3001-435B-A1D1-20670CBB7FD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2CAA4A3-D229-4647-A4A5-A4D53F7CDE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2CAA4A3-D229-4647-A4A5-A4D53F7CDE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2CAA4A3-D229-4647-A4A5-A4D53F7CDE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2CAA4A3-D229-4647-A4A5-A4D53F7CDE18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745D7071-F9DC-46F2-8ECE-7F7E618124B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745D7071-F9DC-46F2-8ECE-7F7E618124B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745D7071-F9DC-46F2-8ECE-7F7E618124B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745D7071-F9DC-46F2-8ECE-7F7E618124B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A12B56E-ABF7-461B-BB11-DBA359615B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A12B56E-ABF7-461B-BB11-DBA359615B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A12B56E-ABF7-461B-BB11-DBA359615B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A12B56E-ABF7-461B-BB11-DBA359615B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B53CBC4-258F-4D5F-AB43-1A90D2651B9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B53CBC4-258F-4D5F-AB43-1A90D2651B9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B53CBC4-258F-4D5F-AB43-1A90D2651B9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B53CBC4-258F-4D5F-AB43-1A90D2651B9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D6E3545-3001-435B-A1D1-20670CBB7FD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D6E3545-3001-435B-A1D1-20670CBB7FD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D6E3545-3001-435B-A1D1-20670CBB7FD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D6E3545-3001-435B-A1D1-20670CBB7FD9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
