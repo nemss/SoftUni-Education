@@ -23,8 +23,4 @@
     <ProjectReference Include="..\CarDealer.Services\CarDealer.Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Infrastructure\Extensions\" />
-  </ItemGroup>
-
 </Project>

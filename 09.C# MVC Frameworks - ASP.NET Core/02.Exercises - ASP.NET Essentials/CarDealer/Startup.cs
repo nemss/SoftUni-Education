@@ -1,16 +1,14 @@
 ﻿namespace CarDealer.App
 {
     using Data;
+    using Data.Models;
+    using Infrastructure.Extensions;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using Data.Models;
-    using Services;
-    using Services.Implementations;
-    using Services.Interfaces;
 
     public class Startup
     {
@@ -30,9 +28,7 @@
                 .AddEntityFrameworkStores<CarDealerDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddTransient<ICustomersServices, CustomersServices>();
-            services.AddTransient<ICarServices, CarServices>();
-            services.AddTransient<ISuppliersServices, SuppliersServices>();
+            services.AddDomainServices();
 
             services.AddMvc();
         }
