@@ -2,6 +2,7 @@
 {
     using Data;
     using Interfaces;
+    using Models.Suppliers;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -22,6 +23,17 @@
                     Id = s.Id,
                     Name = s.Name,
                     NumberOfParts = s.Parts.Count
+                })
+                .ToList();
+
+        public IEnumerable<SupplierModel> All()
+            => this.db
+                .Suppliers
+                .OrderBy(s => s.Name)
+                .Select(s => new SupplierModel
+                {
+                    Id = s.Id,
+                    Name = s.Name
                 })
                 .ToList();
     }

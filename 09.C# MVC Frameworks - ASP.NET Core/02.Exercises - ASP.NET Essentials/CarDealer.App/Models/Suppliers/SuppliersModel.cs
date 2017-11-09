@@ -1,7 +1,7 @@
 ﻿namespace CarDealer.App.Models.Suppliers
 {
-    using Services;
     using System.Collections.Generic;
+    using Services.Models.Suppliers;
 
     public class SuppliersModel
     {

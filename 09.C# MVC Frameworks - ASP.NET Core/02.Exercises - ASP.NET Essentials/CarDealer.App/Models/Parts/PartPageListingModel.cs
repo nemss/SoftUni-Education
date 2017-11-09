@@ -1,7 +1,6 @@
 ﻿namespace CarDealer.App.Models.Parts
 {
     using System.Collections.Generic;
-    using Microsoft.CodeAnalysis.CSharp.Syntax;
     using Services.Models.Parts;
 
     public class PartPageListingModel
