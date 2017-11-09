@@ -8,6 +8,6 @@
 
         public bool IsYoungDriver { get; set; }
 
-        public double? DiscountPrice => this.Price * (1 -(this.Discount + (this.IsYoungDriver ? 0.05 : 0)));
+        public double? DiscountPrice => this.Price * (1 - (this.Discount + (this.IsYoungDriver ? 0.05 : 0)));
     }
 }

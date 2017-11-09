@@ -1,4 +1,4 @@
-﻿ namespace CarDealer.Services.Models.Sales
+﻿namespace CarDealer.Services.Models.Sales
 {
     public class SalePriceModel
     {

@@ -7,6 +7,8 @@
     {
         ICollection<CarByMake> AllCarsByMakes(string make);
 
+        ICollection<CarByMake> All();
+
         ICollection<CarsWithPartsModel> CarWithParts(string id);
     }
 }

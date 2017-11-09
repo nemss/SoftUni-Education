@@ -1,10 +1,9 @@
 ﻿namespace CarDealer.Services.Implementations
 {
-    using System.Collections.Generic;
-    using System.Linq;
     using Data;
     using Interfaces;
-    using Models;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class SuppliersServices : ISuppliersServices
     {
@@ -18,7 +17,7 @@
         public ICollection<FilterSuppliers> AllFilteredSupplierses(bool isInporter)
             => this.db
                 .Suppliers
-                .Select(s=> new FilterSuppliers
+                .Select(s => new FilterSuppliers
                 {
                     Id = s.Id,
                     Name = s.Name,

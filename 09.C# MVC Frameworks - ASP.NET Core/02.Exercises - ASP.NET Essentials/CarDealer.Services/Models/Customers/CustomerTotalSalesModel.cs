@@ -13,7 +13,7 @@
         public IEnumerable<SalePriceModel> BoughtCars { get; set; }
 
         public double? TotalMoneySpent
-                => this.BoughtCars.Sum(p => p.Price * (1 - p.Discount))
-                    * (this.IsYoungDriver ? 0.95 : 1);
+            => this.BoughtCars.Sum(p => p.Price * (1 - p.Discount))
+               * (this.IsYoungDriver ? 0.95 : 1);
     }
 }
