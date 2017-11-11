@@ -1,11 +1,11 @@
 ﻿namespace CarDealer.Services.Implementations
 {
+    using Data;
+    using Data.Models;
     using Interfaces;
     using Models.Parts;
     using System.Collections.Generic;
     using System.Linq;
-    using Data;
-    using Data.Models;
 
     public class PartService : IPartService
     {
@@ -32,7 +32,7 @@
                 })
                 .ToList();
 
-        public void Create(string name, double price, int quantity, int supplierId)
+        public void Create(string name, double? price, int quantity, int supplierId)
         {
             var part = new Part
             {
@@ -45,6 +45,46 @@
             this.db.Parts.Add(part);
             this.db.SaveChanges();
         }
+
+        public void Delete(int id)
+        {
+            var part = this.db.Parts.Find(id);
+
+            if (part == null)
+            {
+                return;
+            }
+
+            this.db.Parts.Remove(part);
+            this.db.SaveChanges();
+        }
+
+        public void Edit(int id, double? price, int quantity)
+        {
+            var part = this.db.Parts.Find(id);
+
+            if (part == null)
+            {
+                return;
+            }
+
+            part.Price = price;
+            part.Quantity = quantity;
+
+            this.db.SaveChanges();
+        }
+
+        public PartDetailsModel ById(int id)
+            => this.db
+                .Parts
+                .Where(p => p.Id == id)
+                .Select(p => new PartDetailsModel
+                {
+                    Name = p.Name,
+                    Price = p.Price,
+                    Quantity = p.Quantity
+                })
+                .FirstOrDefault();
 
         public int Total()
             => this.db.Parts.Count();

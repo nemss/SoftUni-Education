@@ -1,6 +1,7 @@
 ﻿namespace CarDealer.Services.Implementations
 {
     using Data;
+    using Data.Models;
     using Interfaces;
     using Models.Cars;
     using Models.Parts;
@@ -33,7 +34,7 @@
         public ICollection<CarByMake> All()
             => this.db
                 .Cars
-                .OrderBy(c => c.Model)
+                .OrderByDescending(c => c.Id)
                 .ThenByDescending(c => c.TravelledDistance)
                 .Select(c => new CarByMake
                 {
@@ -43,6 +44,18 @@
                 })
                 .ToList();
 
+        public void Create(string make, string model, long travelledDistance)
+        {
+            var car = new Car
+            {
+                Make = make,
+                Model = model,
+                TravelledDistance = travelledDistance
+            };
+
+            this.db.Cars.Add(car);
+            this.db.SaveChanges();
+        }
 
         public ICollection<CarsWithPartsModel> CarWithParts(string id)
             => this.db

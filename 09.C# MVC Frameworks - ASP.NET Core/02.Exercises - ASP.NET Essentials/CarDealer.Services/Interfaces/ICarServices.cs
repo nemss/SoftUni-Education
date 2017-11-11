@@ -9,6 +9,9 @@
 
         ICollection<CarByMake> All();
 
+        void Create(string make, string model, long travelledDistance);
+
         ICollection<CarsWithPartsModel> CarWithParts(string id);
+        
     }
 }

@@ -39,6 +39,7 @@
             <th>Price</th>
             <th>Quantity</th>
             <th>Suplier</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -49,6 +50,10 @@
                 <td>@part.Price</td>
                 <td>@part.Quantity</td>
                 <td>@part.SupplierName</td>
+                <th class="text-center">
+                    <a class="btn btn-sm btn-warning" href="/parts/edit/@part.Id">Edit</a>
+                    <a class="btn btn-sm btn-danger" href="/parts/delete/@part.Id">Delete</a>
+                </th>
             </tr>
         }
     </tbody>

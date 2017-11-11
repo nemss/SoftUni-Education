@@ -1,6 +1,7 @@
 ﻿namespace CarDealer.App.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using Models.Cars;
     using Services.Interfaces;
 
     [Route("cars")]
@@ -12,6 +13,27 @@
         {
             this.cars = cars;
         }
+
+        [Route(nameof(Create))]
+        public IActionResult Create() => View();
+
+        [HttpPost]
+        [Route(nameof(Create))]
+        public IActionResult Create(CarFormModel carModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(carModel);
+            }
+
+            this.cars.Create(
+                carModel.Make,
+                carModel.Model,
+                carModel.TravelledDistance);
+
+            return RedirectToAction(nameof(All));
+        }
+
 
         [HttpGet("{make}")]
         public IActionResult CarsByMakes(string make)
