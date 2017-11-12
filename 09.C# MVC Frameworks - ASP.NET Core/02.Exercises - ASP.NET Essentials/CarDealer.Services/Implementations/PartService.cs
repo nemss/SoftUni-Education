@@ -32,6 +32,17 @@
                 })
                 .ToList();
 
+        public IEnumerable<PartBasicModel> AllBasic()
+            => this.db
+                .Parts
+            .OrderBy(p => p.Id)
+                .Select(p => new PartBasicModel
+                {
+                    Id = p.Id,
+                    Name = p.Name
+                })
+            .ToList();
+
         public void Create(string name, double? price, int quantity, int supplierId)
         {
             var part = new Part

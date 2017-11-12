@@ -9,7 +9,7 @@
 
         ICollection<CarByMake> All();
 
-        void Create(string make, string model, long travelledDistance);
+        void Create(string make, string model, long travelledDistance, IEnumerable<int> parts);
 
         ICollection<CarsWithPartsModel> CarWithParts(string id);
         

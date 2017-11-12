@@ -17,10 +17,9 @@
         <span asp-validation-for="TravelledDistance" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <select multiply class="form-control">
-            <option value="Volvo">Volvo</option>
-            <option value="Saab">Saab</option>
-        </select>
+        <label asp-for="AllParts"></label>
+        <select asp-for="SelectParts" asp-items="Model.AllParts" multiply class="form-control"></select>
+        <small>Hold "Ctrl" to select multiple parts</small>
     </div>
     <div>
         <input class="btn btn-success" type="submit" value="Save Car" />
