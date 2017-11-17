@@ -3,6 +3,7 @@
     using Data;
     using Data.Models;
     using Infrastructure.Extensions;
+    using Infrastructure.Filters;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
@@ -38,7 +39,11 @@
 
             services.AddDomainServices();
 
-            services.AddMvc();
+            //services.AddMvc(options =>
+            //{
+            //    options.Filters.Add<LogAttribute>();
+            //    options.Filters.Add<MeasureTimeAttribute>();
+            //});
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
