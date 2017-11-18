@@ -48,5 +48,11 @@
 
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
+
+        public IActionResult All() 
+            => View(this.cameras.All());
+
+        public IActionResult Details(int id)
+            => View(this.cameras.Details(id));
     }
 }

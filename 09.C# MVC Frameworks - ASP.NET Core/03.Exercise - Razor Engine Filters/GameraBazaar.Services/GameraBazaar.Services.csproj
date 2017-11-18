@@ -8,8 +8,4 @@
     <ProjectReference Include="..\GamaraBazzar.Data\GameraBazaar.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>

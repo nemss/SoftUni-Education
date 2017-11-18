@@ -39,6 +39,8 @@
 
             services.AddDomainServices();
 
+            services.AddMvc();
+
             //services.AddMvc(options =>
             //{
             //    options.Filters.Add<LogAttribute>();

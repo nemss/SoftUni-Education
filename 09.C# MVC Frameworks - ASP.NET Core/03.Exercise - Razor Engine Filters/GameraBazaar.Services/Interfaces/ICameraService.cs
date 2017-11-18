@@ -1,6 +1,7 @@
 ﻿namespace GameraBazaar.Services.Interfaces
 {
     using Data.Models;
+    using Models.Cameras;
     using System.Collections.Generic;
 
     public interface ICameraService
@@ -20,5 +21,9 @@
             string description,
             string imageUrl,
             string userId);
+
+        CameraDetailsModel Details(int id);
+
+        IEnumerable<CameraListModel> All();
     }
 }
