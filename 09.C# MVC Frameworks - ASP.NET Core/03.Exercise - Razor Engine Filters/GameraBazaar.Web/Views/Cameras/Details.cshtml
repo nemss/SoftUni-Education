@@ -1,0 +1,27 @@
+﻿@model CameraDetailsModel
+@{
+    ViewData["Title"] = "Details Camera";
+}
+
+<h2>@Model.Make @Model.Model - @Model.Price - @(Model.Quantity > 0 ? "IN STOCK" : "OUT OF STOCK")</h2>
+<a href="/manage/index/@Model.UserId">Seller username</a>
+<img src="@Model.ImageUrl" class="img-responsive" height="100" width="88"/>
+
+<div>
+    <label  asp-for="IsFullFrame"></label> - @(Model.IsFullFrame ? "Yes" : "No")
+    <br/>
+    <label asp-for="MinShutterSpeed"></label> - @Model.MinShutterSpeed"
+    <br/>
+    <label asp-for="MaxShutterSpeed"></label> - @Model.MaxShutterSpeed/8000
+    <br/>
+    <label asp-for="MinISO"></label> - @Model.MinISO
+    <br/>
+    <label asp-for="MaxISO"></label> - @Model.MaxISO
+    <br/>
+    <label asp-for="VideoResolution"></label> - @(Model.VideoResolution)p
+    <br/>
+    <label asp-for="LightMetering"></label> - @Model.LightMetering
+    <br/>
+    <label asp-for="Description"></label> - @Model.Description
+</div>
+
