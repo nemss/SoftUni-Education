@@ -78,6 +78,67 @@
                 })
                 .FirstOrDefault();
 
+        public void Delete(int id)
+        {
+            var camera = this.db.Cameras.Find(id);
+
+            if (camera == null)
+            {
+                return;
+            }
+
+            this.db.Cameras.Remove(camera);
+            this.db.SaveChanges();
+        }
+
+        public bool Edit(
+            int id, 
+            CameraMake make, 
+            string model, decimal price,
+            int quantity,
+            int minShutterSpeed, 
+            int maxShutterSpeed,
+            MinISO minISO, 
+            int maxISO, 
+            bool isFullFrame, 
+            string videoResolution,
+            IEnumerable<LightMetering> 
+            lightMetering, 
+            string description,
+            string imageUrl,
+            string userId)
+        {
+            var camera = this.db
+                .Cameras
+                .FirstOrDefault(c => c.Id == id && c.UserId == userId);
+
+            if (camera == null)
+            {
+                return false;
+            }
+
+            camera.Make = make;
+            camera.Model = model;
+            camera.Price = price;
+            camera.Quantity = quantity;
+            camera.MinShutterSpeed = minShutterSpeed;
+            camera.MaxShutterSpeed = maxShutterSpeed;
+            camera.MinISO = minISO;
+            camera.MaxISO = maxISO;
+            camera.IsFullFrame = isFullFrame;
+            camera.VideoResolution = videoResolution;
+            camera.LIsLightMetering = (LightMetering) lightMetering.Cast<int>().Sum();
+            camera.Description = description;
+            camera.ImageUrl = imageUrl;
+
+            this.db.SaveChanges();
+
+            return true;
+        }
+
+        public bool Exists(int id, string userId)
+            => this.db.Cameras.Any(c => c.Id == id && c.UserId == userId);
+
         IEnumerable<CameraListModel> ICameraService.All()
         {
             return All();
