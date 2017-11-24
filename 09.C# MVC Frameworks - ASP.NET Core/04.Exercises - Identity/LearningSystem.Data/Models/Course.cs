@@ -2,13 +2,18 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     public class Course
     {
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(DataConstants.CourseNameMaxLenght)]
         public string Name { get; set; }
 
+        [Required]
+        [MaxLength(DataConstants.CourseDescriptionLenght)]
         public string Description { get; set; }
 
         public DateTime StartDate { get; set; }

@@ -44,6 +44,8 @@
                 .HasMany(u => u.Articles)
                 .WithOne(a => a.Author)
                 .HasForeignKey(a => a.AuthorId);
+
+            base.OnModelCreating(builder);
         }
     }
 }
