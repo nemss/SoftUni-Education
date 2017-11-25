@@ -6,43 +6,43 @@
 
     public class LearningSystemDbContext : IdentityDbContext<User>
     {
-        public DbSet<Course> Courses { get; set; }
-
-        public DbSet<Article> Articles { get; set; }
-
         public LearningSystemDbContext(DbContextOptions<LearningSystemDbContext> options)
             : base(options)
         {
         }
 
+        public DbSet<Course> Courses { get; set; }
+
+        public DbSet<Article> Articles { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder
                 .Entity<StudentCourse>()
-                .HasKey(sc => new { sc.StudentId, sc.CourseId });
+                .HasKey(sc => new { sc.CourseId, sc.StudentId });
 
             builder
-                .Entity<User>()
-                .HasMany(u => u.Courses)
-                .WithOne(sc => sc.Student)
+                .Entity<StudentCourse>()
+                .HasOne(s => s.Student)
+                .WithMany(c => c.Courses)
                 .HasForeignKey(sc => sc.StudentId);
 
             builder
-                .Entity<Course>()
-                .HasMany(c => c.Students)
-                .WithOne(sc => sc.Course)
+                .Entity<StudentCourse>()
+                .HasOne(s => s.Course)
+                .WithMany(c => c.Students)
                 .HasForeignKey(sc => sc.CourseId);
 
             builder
-                .Entity<User>()
-                .HasMany(u => u.Trainigs)
-                .WithOne(c => c.Trainer)
-                .HasForeignKey(c => c.TrainerId);
+                .Entity<Course>()
+                .HasOne(c => c.Trainer)
+                .WithMany(t => t.Trainings)
+                .HasForeignKey(ct => ct.TrainerId);
 
             builder
-                .Entity<User>()
-                .HasMany(u => u.Articles)
-                .WithOne(a => a.Author)
+                .Entity<Article>()
+                .HasOne(a => a.Author)
+                .WithMany(a => a.Articles)
                 .HasForeignKey(a => a.AuthorId);
 
             base.OnModelCreating(builder);

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <UserSecretsId>aspnet-LearningSystem.Web-BA9BF99E-0DE5-4B99-94FB-DA61C3545BEE</UserSecretsId>
+    <UserSecretsId>aspnet-LearningSystem.Web-7D32D723-43CB-47A2-AA41-8D32A48BC457</UserSecretsId>
   </PropertyGroup>
 
 
@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LearningSystem.Data\LearningSystem.Data.csproj" />
+    <ProjectReference Include="..\LearningSystem.Service\LearningSystem.Service.csproj" />
   </ItemGroup>
 
 </Project>

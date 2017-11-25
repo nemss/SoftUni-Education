@@ -1,5 +1,6 @@
 ﻿namespace LearningSystem.Data.Models
 {
+    using Constants;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -9,11 +10,12 @@
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(DataConstants.CourseNameMaxLenght)]
+        [MinLength(DataConstants.NameMinLenght)]
+        [MaxLength(DataConstants.NameMaxLenght)]
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(DataConstants.CourseDescriptionLenght)]
+        [MaxLength(DataConstants.CourseDescriptionMaxLenght)]
         public string Description { get; set; }
 
         public DateTime StartDate { get; set; }

@@ -1,11 +1,12 @@
 ﻿namespace LearningSystem.Web.Controllers
 {
-    using Data.Models;
+    using LearningSystem.Data.Models;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
+    using Models.AccountView;
     using Models.AccountViewModels;
     using System;
     using System.Security.Claims;
@@ -53,7 +54,7 @@
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
@@ -212,7 +213,13 @@
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var user = new User
+                {
+                    UserName = model.Username,
+                    Name = model.Name,
+                    Birthdate = model.Birthdate,
+                    Email = model.Email
+                };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -422,7 +429,6 @@
             return View();
         }
 
-
         [HttpGet]
         public IActionResult AccessDenied()
         {
@@ -451,6 +457,6 @@
             }
         }
 
-        #endregion
+        #endregion Helpers
     }
 }

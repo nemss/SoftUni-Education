@@ -1,12 +1,12 @@
 ﻿namespace LearningSystem.Web.Controllers
 {
-    using Data.Models;
+    using LearningSystem.Data.Models;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
-    using Models.ManageViewModels;
+    using Models.ManageView;
     using System;
     using System.Linq;
     using System.Text;
@@ -494,6 +494,6 @@
                 unformattedKey);
         }
 
-        #endregion
+        #endregion Helpers
     }
 }

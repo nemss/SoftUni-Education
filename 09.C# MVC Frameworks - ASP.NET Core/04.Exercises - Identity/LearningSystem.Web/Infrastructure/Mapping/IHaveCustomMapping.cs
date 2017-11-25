@@ -1,7 +1,9 @@
 ﻿namespace LearningSystem.Web.Infrastructure.Mapping
 {
+    using AutoMapper;
+
     public interface IHaveCustomMapping
     {
-        void ConfigureMapping(AutoMapperProfile mapper);
+        void ConfigureMapping(Profile mapper);
     }
 }

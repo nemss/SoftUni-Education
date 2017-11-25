@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using LearningSystem.Web.Infrastructure.Constants
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - LearningSystem</title>
+    <title>@ViewData["Title"] - Learning System</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,23 +27,34 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">LearningSystem</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Learning System</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    @if (User.IsInRole(WebConstants.AdministratorRoleName))
+                    {
+                        <li><a asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a></li>
+                    }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017 - LearningSystem.Web</p>
-        </footer>
-    </div>
+<div class="container body-content">
+    @if (TempData.ContainsKey(WebConstants.TempDataSuccessMessage))
+    {
+        <div class="alert alert-success">
+            @TempData[WebConstants.TempDataSuccessMessage]
+        </div>
+    }
+
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; 2017 - Learning System</p>
+    </footer>
+</div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

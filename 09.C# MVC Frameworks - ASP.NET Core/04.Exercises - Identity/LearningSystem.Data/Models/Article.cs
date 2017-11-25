@@ -1,5 +1,6 @@
 ﻿namespace LearningSystem.Data.Models
 {
+    using Constants;
     using System;
     using System.ComponentModel.DataAnnotations;
 
@@ -13,6 +14,7 @@
         public string Title { get; set; }
 
         [Required]
+        [MaxLength(DataConstants.ArticleContentMaxLenght)]
         public string Content { get; set; }
 
         public DateTime PublishDate { get; set; }
