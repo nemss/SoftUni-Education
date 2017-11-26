@@ -4,10 +4,14 @@
     ViewData["Title"] = "Publish Article";
 }
 
-<h2>Create</h2>
+<h2>@ViewData["Title"]</h2>
 
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-<script>tinymce.init({ selector:'Content' });</script>
+<script>
+    tinymce.init({
+         selector:'Content'
+    });
+</script>
 
 <div class="row">
     <div class="col-md-8">
@@ -29,4 +33,6 @@
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'Content' });</script>
 }

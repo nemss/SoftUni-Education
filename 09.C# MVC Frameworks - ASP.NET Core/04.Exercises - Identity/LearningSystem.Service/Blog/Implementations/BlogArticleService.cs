@@ -1,8 +1,13 @@
 ﻿namespace LearningSystem.Service.Blog.Implementations
 {
+    using AutoMapper.QueryableExtensions;
     using Data;
     using Data.Models;
+    using Microsoft.EntityFrameworkCore;
+    using Models;
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     public class BlogArticleService : IBlogArticleService
@@ -13,6 +18,25 @@
         {
             this.db = db;
         }
+
+        public async Task<IEnumerable<BlogArticleListingServiceModel>> AllSync(int page = 1)
+            => await this.db
+                .Articles
+                .OrderByDescending(a => a.PublishDate)
+                .Skip((page - 1) * ServiceConstants.BlogArticlesPageSize)
+                .Take(ServiceConstants.BlogArticlesPageSize)
+                .ProjectTo<BlogArticleListingServiceModel>()
+                .ToListAsync();
+
+        public async Task<int> TotalAsync()
+            => await this.db.Articles.CountAsync();
+
+        public async Task<BlogArticleDetailsServiceModel> ById(int id)
+            => await this.db
+                .Articles
+                .Where(a => a.Id == id)
+                .ProjectTo<BlogArticleDetailsServiceModel>()
+                .FirstOrDefaultAsync();
 
         public async Task CreateAsync(string title, string content, string authorId)
         {

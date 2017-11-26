@@ -8,6 +8,7 @@
     using Service.Html;
     using System.Threading.Tasks;
     using Data.Models;
+    using Infrastructure.Extensions;
     using Microsoft.AspNetCore.Identity;
     using Service.Blog;
 
@@ -27,10 +28,17 @@
         }
 
         [AllowAnonymous]
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public async Task<IActionResult> Index(int page = 1)
+            => View(new ArticleListingViewModel
+            {
+                Articles = await this.articles.AllSync(page),
+                TotalArticles = await this.articles.TotalAsync(),
+                CurrentPage = page
+            });
+
+        [AllowAnonymous]
+        public async Task<IActionResult> Details(int id)
+            => this.ViewOrNotFound(await this.articles.ById(id));
 
         public IActionResult Create() => View();
 
