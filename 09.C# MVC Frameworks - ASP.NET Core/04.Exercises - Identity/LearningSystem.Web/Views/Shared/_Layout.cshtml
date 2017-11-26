@@ -31,30 +31,38 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="Blog" asp-controller="Articles" asp-action="Index">Blog</a></li>
+
                     @if (User.IsInRole(WebConstants.AdministratorRoleName))
                     {
                         <li><a asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a></li>
+                        <li><a asp-area="Admin" asp-controller="Courses" asp-action="Create">Create Course</a></li>
                     }
+
+                    @if (User.IsInRole(WebConstants.BlogAuthorRoleName))
+                    {
+                        <li><a asp-area="Blog" asp-controller="Articles" asp-action="Create">Publish Article</a></li>
+                    }
+
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
-<div class="container body-content">
-    @if (TempData.ContainsKey(WebConstants.TempDataSuccessMessage))
-    {
-        <div class="alert alert-success">
-            @TempData[WebConstants.TempDataSuccessMessage]
-        </div>
-    }
+    <div class="container body-content">
+        @if (TempData.ContainsKey(WebConstants.TempDataSuccessMessage))
+        {
+            <div class="alert alert-success">
+                @TempData[WebConstants.TempDataSuccessMessage]
+            </div>
+        }
 
-    @RenderBody()
-    <hr />
-    <footer>
-        <p>&copy; 2017 - Learning System</p>
-    </footer>
-</div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2017 - Learning System</p>
+        </footer>
+    </div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
