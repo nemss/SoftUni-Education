@@ -1,5 +1,6 @@
 ﻿namespace LearningSystem.Service.Implementations
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using AutoMapper.QueryableExtensions;
@@ -23,5 +24,14 @@
                 .Where(u => u.Id == id)
                 .ProjectTo<UserProfileServiceModel>(new { studentId = id })
                 .FirstOrDefaultAsync();
+
+        public async Task<IEnumerable<UserListingServiceModel>> FindAsync(string search)
+            => await this.db
+                .Users
+                .OrderBy(c => c.UserName)
+                .Where(c => c.Name.ToLower().Contains(search.ToLower()))
+                .ProjectTo<UserListingServiceModel>()
+                .ToListAsync();
+
     }
 }

@@ -22,11 +22,19 @@
 
         public async Task<IEnumerable<CourseListingServiceModel>> Active()
             => await this.db
-            .Courses
-            .OrderByDescending(c => c.Id)
-            .Where(c => c.StartDate >= DateTime.UtcNow)
-            .ProjectTo<CourseListingServiceModel>()
-            .ToListAsync();
+                .Courses
+                .OrderByDescending(x => x.Id)
+                .Where(c => c.StartDate >= DateTime.UtcNow)
+                .ProjectTo<CourseListingServiceModel>()
+                .ToListAsync();
+
+        public async Task<IEnumerable<CourseListingServiceModel>> FindAsync(string search)
+            => await this.db
+                .Courses
+                .OrderBy(c => c.Name)
+                .Where(c => c.Name.ToLower().Contains(search.ToLower()))
+                .ProjectTo<CourseListingServiceModel>()
+                .ToListAsync();
 
         public async Task<TModel> ByIdAsync<TModel>(int id) where TModel : class 
             => await this.db
