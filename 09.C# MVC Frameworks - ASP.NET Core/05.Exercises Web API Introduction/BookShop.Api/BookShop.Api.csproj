@@ -9,11 +9,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookShop.Common\BookShop.Common.csproj" />
+    <ProjectReference Include="..\BookShop.Data\BookShop.Data.csproj" />
+    <ProjectReference Include="..\BookShop.Services\BookShop.Services.csproj" />
   </ItemGroup>
 
 </Project>

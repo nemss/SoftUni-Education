@@ -1,5 +1,7 @@
 ﻿namespace BookShop.Data.Models
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using static DataConstants;
@@ -23,5 +25,15 @@
         public int Copies { get; set; }
 
         public int? Edition { get; set; }
+
+        public int? AgeRestriction { get; set; }
+
+        public DateTime ReleaseDate { get; set; }
+
+        public int AuthorId { get; set; }
+
+        public Author Author { get; set; }
+
+        public ICollection<BookCategory> Categories { get; set; } = new List<BookCategory>();
     }
 }
