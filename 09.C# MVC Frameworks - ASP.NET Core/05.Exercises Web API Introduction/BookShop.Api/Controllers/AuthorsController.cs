@@ -2,6 +2,7 @@
 {
     using System.Threading.Tasks;
     using Infrastructure.Extensions;
+    using Infrastructure.Filters;
     using Microsoft.AspNetCore.Mvc;
     using Models;
     using Services.Interfaces;
@@ -20,17 +21,14 @@
         public async Task<IActionResult> Get(int id)
             => this.OkOrNotFound(await this.authors.Details(id));
 
+        [HttpGet(WithId + "/books")]
+        public async Task<IActionResult> GetBooks(int id)
+            => Ok(await this.authors.Books(id));
+
         [HttpPost]
-        public async Task<IActionResult> Post(AuthorRequestModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+        [ValidateModelState]
+        public async Task<IActionResult> Post([FromBody] AuthorRequestModel model)
+            => Ok(await this.authors.Create(model.FirstName, model.LastName));
 
-            var id = await this.authors.Create(model.FirstName, model.LastName);
-
-            return Ok();
-        }
     }
 }

@@ -1,14 +1,14 @@
 ﻿namespace BookShop.Services.Implementations
 {
-    using Data;
-    using Interfaces;
-    using Models.Author;
-    using System.Linq;
-    using System.Runtime.CompilerServices;
-    using System.Threading.Tasks;
     using AutoMapper.QueryableExtensions;
+    using Data;
     using Data.Models;
+    using Interfaces;
     using Microsoft.EntityFrameworkCore;
+    using Models.Author;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     public class AuthorService : IAuthorService
     {
@@ -39,5 +39,15 @@
                 .Where(a => a.Id == id)
                 .ProjectTo<AuthorDetailsServiceModel>()
                 .FirstOrDefaultAsync();
+
+        public async Task<IEnumerable<BookWithCategoriesServiceModel>> Books(int authorId)
+            => await this.db
+                .Books
+                .Where(b => b.AuthorId == authorId)
+                .ProjectTo<BookWithCategoriesServiceModel>()
+                .ToListAsync();
+
+        public async Task<bool> Exists(int id)
+            => await this.db.Authors.AnyAsync(a => a.Id == id);
     }
 }
