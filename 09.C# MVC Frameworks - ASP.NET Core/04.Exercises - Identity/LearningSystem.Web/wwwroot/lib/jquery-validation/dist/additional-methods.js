@@ -13,7 +13,9 @@
 		factory( jQuery );
 	}
 }(function( $ ) {
+
 (function() {
+
 	function stripHtml(value) {
 		// remove html tags and space chars
 		return value.replace(/<.[^<>]*?>/g, " ").replace(/&nbsp;|&#160;/gi, " ")
@@ -34,6 +36,7 @@
 			regex = /\b\w+\b/g;
 		return this.optional(element) || valueStripped.match(regex).length >= params[0] && valueStripped.match(regex).length <= params[1];
 	}, $.validator.format("Please enter between {0} and {1} words."));
+
 }());
 
 // Accept a value from a file input based on a required mimetype
@@ -182,6 +185,7 @@ $.validator.addMethod( "cifES", function( value ) {
 	}
 
 	return false;
+
 }, "Please specify a valid CIF number." );
 
 /*
@@ -239,6 +243,7 @@ $.validator.addMethod("cpfBR", function(value) {
 		return checkResult(sum, secondCN);
 	}
 	return false;
+
 }, "Please specify a valid CPF number");
 
 /* NOTICE: Modified version of Castle.Components.Validator.CreditCardValidator
@@ -350,6 +355,7 @@ $.validator.addMethod("currency", function(value, element, param) {
     regex = "^[" + symbol + "([1-9]{1}[0-9]{0,2}(\\,[0-9]{3})*(\\.[0-9]{0,2})?|[1-9]{1}[0-9]{0,}(\\.[0-9]{0,2})?|0(\\.[0-9]{0,2})?|(\\.[0-9]{1,2})?)$";
     regex = new RegExp(regex);
     return this.optional(element) || regex.test(value);
+
 }, "Please specify a valid currency");
 
 $.validator.addMethod("dateFA", function(value, element) {
@@ -606,6 +612,7 @@ $.validator.addMethod( "nieES", function( value ) {
 	}
 
 	return false;
+
 }, "Please specify a valid NIE number." );
 
 /*
@@ -631,6 +638,7 @@ $.validator.addMethod( "nifES", function( value ) {
 	}
 
 	return false;
+
 }, "Please specify a valid NIF number." );
 
 jQuery.validator.addMethod( "notEqualTo", function( value, element, param ) {
@@ -986,4 +994,5 @@ $.validator.addMethod("zipcodeUS", function(value, element) {
 $.validator.addMethod("ziprange", function(value, element) {
 	return this.optional(element) || /^90[2-5]\d\{2\}-\d{4}$/.test(value);
 }, "Your ZIP-code must be in the range 902xx-xxxx to 905xx-xxxx");
+
 }));

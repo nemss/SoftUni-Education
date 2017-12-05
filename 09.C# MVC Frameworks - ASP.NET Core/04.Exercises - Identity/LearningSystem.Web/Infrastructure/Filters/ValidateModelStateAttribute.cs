@@ -3,7 +3,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Filters;
     using System.Linq;
-
+    
     public class ValidateModelStateAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -19,8 +19,8 @@
 
                 var model = context
                     .ActionArguments
-                    .FirstOrDefault(a => a.Key.ToLower()
-                    .Contains("model")).Value;
+                    .FirstOrDefault(a => a.Key.ToLower().Contains("model"))
+                    .Value;
 
                 if (model == null)
                 {

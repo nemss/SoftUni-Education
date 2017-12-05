@@ -1,25 +1,30 @@
 ﻿namespace LearningSystem.Web.Controllers
 {
+    using Data;
     using Data.Models;
-    using Infrastructure.Extensions;
+    using Infrastructure.Extensions;    
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Models.Courses;
-    using Service.Interfaces;
+    using Services;
+    using Services.Models;
     using System.Threading.Tasks;
-    using Service.Models.Course;
 
     public class CoursesController : Controller
     {
         private readonly ICourseService courses;
         private readonly UserManager<User> userManager;
 
-        public CoursesController(ICourseService courses, UserManager<User> userManager)
+        public CoursesController(
+            ICourseService courses,
+            UserManager<User> userManager)
         {
             this.courses = courses;
             this.userManager = userManager;
         }
+
         public async Task<IActionResult> Details(int id)
         {
             var model = new CourseDetailsViewModel
@@ -31,14 +36,41 @@
             {
                 return NotFound();
             }
-
+            
             if (User.Identity.IsAuthenticated)
             {
                 var userId = this.userManager.GetUserId(User);
-                model.UserIsEnrolledCourse = await this.courses.StudentIsEnrolledCourseAsync(id, userId);
+
+                model.UserIsEnrolledCourse = 
+                    await this.courses.StudentIsEnrolledCourseAsync(id, userId);
             }
 
             return View(model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> SubmitExam(int id, IFormFile exam)
+        {
+            if (!exam.FileName.EndsWith(".zip") 
+                || exam.Length > DataConstants.CourseExamSubmissionFileLength)
+            {
+                TempData.AddErrorMessage("Your submission should be a '.zip' file with no more than 2 MB in size!");
+                return RedirectToAction(nameof(Details), new { id });
+            }
+
+            var fileContents = await exam.ToByteArrayAsync();
+            var userId = this.userManager.GetUserId(User);
+
+            var success = await this.courses.SaveExamSubmission(id, userId, fileContents);
+
+            if (!success)
+            {
+                return BadRequest();
+            }
+
+            TempData.AddSuccessMessage("Exam submission saved successfully!");
+            return RedirectToAction(nameof(Details), new { id });
         }
 
         [Authorize]
@@ -74,7 +106,7 @@
 
             TempData.AddSuccessMessage("Sorry to see you go!");
 
-            return RedirectToAction(nameof(Details), new {id});
+            return RedirectToAction(nameof(Details), new { id });
         }
     }
 }

@@ -1,21 +1,20 @@
 ﻿namespace LearningSystem.Web.Areas.Admin.Models.Courses
 {
-    using Data.Constants;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class AddCourseFormModel : IValidatableObject
+    using static Data.DataConstants;
 
+    public class AddCourseFormModel : IValidatableObject
     {
         [Required]
-        [MinLength(DataConstants.NameMinLenght)]
-        [MaxLength(DataConstants.NameMaxLenght)]
+        [MaxLength(CourseNameMaxLength)]
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(DataConstants.CourseDescriptionMaxLenght)]
+        [MaxLength(CourseDescriptionMaxLength)]
         public string Description { get; set; }
 
         [DataType(DataType.Date)]
@@ -23,7 +22,7 @@
 
         [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
-
+        
         [Display(Name = "Trainer")]
         [Required]
         public string TrainerId { get; set; }
@@ -34,7 +33,7 @@
         {
             if (this.StartDate < DateTime.UtcNow)
             {
-                yield return new ValidationResult("Start date shoul be in the future.");
+                yield return new ValidationResult("Start date should be in the future.");
             }
 
             if (this.StartDate > this.EndDate)

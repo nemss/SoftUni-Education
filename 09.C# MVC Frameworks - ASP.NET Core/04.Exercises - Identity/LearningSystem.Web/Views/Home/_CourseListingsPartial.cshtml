@@ -11,11 +11,9 @@
             </div>
             <div class="panel-body">
                 <img src="http://thecatapi.com/api/images/get?format=src&type=gif&guid=@(Guid.NewGuid())" class="img-responsive">
-                @course.StartDate.ToShortDateString() - @course.EndDate.ToShortDateString()
+                <br />
+                <p class="text-center">@course.StartDate.ToShortDateString() - @course.EndDate.ToShortDateString()</p>
             </div>
         </div>
     </div>
 }
-
-
-

@@ -1,9 +1,10 @@
 ﻿namespace LearningSystem.Web.Controllers
 {
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Models;
     using Models.Home;
-    using Service.Interfaces;
+    using Services;
     using System.Diagnostics;
     using System.Threading.Tasks;
 
@@ -12,31 +13,33 @@
         private readonly ICourseService courses;
         private readonly IUserService users;
 
-        public HomeController(ICourseService courses, IUserService users)
+        public HomeController(
+            ICourseService courses,
+            IUserService users)
         {
             this.courses = courses;
             this.users = users;
         }
 
         public async Task<IActionResult> Index()
-            => View(new SearchIndexViewModel
+            => View(new HomeIndexViewModel
             {
-                Courses = await this.courses.Active()
+                Courses = await this.courses.ActiveAsync()
             });
 
         public async Task<IActionResult> Search(SearchFormModel model)
         {
-            var viewModel = new SearchIndexViewModel
+            var viewModel = new SearchViewModel
             {
                 SearchText = model.SearchText
             };
 
-            if (model.IsSearchingInCourses)
+            if (model.SearchInCourses)
             {
                 viewModel.Courses = await this.courses.FindAsync(model.SearchText);
             }
 
-            if (model.IsSearchingInUsers)
+            if (model.SearchInUsers)
             {
                 viewModel.Users = await this.users.FindAsync(model.SearchText);
             }

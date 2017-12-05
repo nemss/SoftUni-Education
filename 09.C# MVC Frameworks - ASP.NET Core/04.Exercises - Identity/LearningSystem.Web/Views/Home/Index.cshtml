@@ -1,4 +1,4 @@
-﻿@model SearchIndexViewModel
+﻿@model HomeIndexViewModel
 
 @{
     ViewData["Title"] = "Active Courses";
@@ -14,12 +14,12 @@
             <input asp-for="SearchText" class="form-control" placeholder="Search..." />
         </div>
         <div class="col-md-2">
-            <input asp-for="IsSearchingInCourses" />
-            <label asp-for="IsSearchingInCourses"></label>
+            <input asp-for="SearchInCourses" /> 
+            <label asp-for="SearchInCourses"></label>
         </div>
         <div class="col-md-2">
-            <input asp-for="IsSearchingInCourses" />
-            <label asp-for="IsSearchingInCourses"></label>
+            <input asp-for="SearchInUsers" />
+            <label asp-for="SearchInUsers"></label>
         </div>
         <div class="col-md-2">
             <input type="submit" class="btn btn-default pull-right" value="Search" />
@@ -27,6 +27,8 @@
     </form>
 </div>
 
-<div class="row home-page">
-   @await Html.PartialAsync("_CourseListingsPartial", Model.Courses)
+<br />
+
+<div class="row course-listings">
+    @await Html.PartialAsync("_CourseListingsPartial", Model.Courses)
 </div>

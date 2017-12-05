@@ -1,18 +1,18 @@
 ﻿namespace LearningSystem.Web.Areas.Blog.Models.Articles
 {
-    using Data.Constants;
     using System;
     using System.ComponentModel.DataAnnotations;
+
+    using static Data.DataConstants;
 
     public class PublishArticleFormModel
     {
         [Required]
-        [MinLength(DataConstants.ArticleTitleMinLenght)]
-        [MaxLength(DataConstants.ArticleTitleMaxLenght)]
+        [MinLength(ArticleTitleMinLength)]
+        [MaxLength(ArticleTitleMaxLength)]
         public string Title { get; set; }
 
         [Required]
-        [MaxLength(DataConstants.ArticleContentMaxLenght)]
         public string Content { get; set; }
     }
 }

@@ -1,20 +1,20 @@
 ﻿namespace LearningSystem.Data.Models
 {
-    using Constants;
     using System;
     using System.ComponentModel.DataAnnotations;
+
+    using static DataConstants;
 
     public class Article
     {
         public int Id { get; set; }
 
         [Required]
-        [MinLength(DataConstants.ArticleTitleMinLenght)]
-        [MaxLength(DataConstants.ArticleTitleMaxLenght)]
+        [MinLength(ArticleTitleMinLength)]
+        [MaxLength(ArticleTitleMaxLength)]
         public string Title { get; set; }
 
         [Required]
-        [MaxLength(DataConstants.ArticleContentMaxLenght)]
         public string Content { get; set; }
 
         public DateTime PublishDate { get; set; }

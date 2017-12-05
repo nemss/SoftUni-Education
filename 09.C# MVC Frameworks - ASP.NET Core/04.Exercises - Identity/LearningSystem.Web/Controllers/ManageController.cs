@@ -6,14 +6,12 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
-    using Models.ManageView;
+    using Models.ManageViewModels;
     using System;
     using System.Linq;
     using System.Text;
     using System.Text.Encodings.Web;
     using System.Threading.Tasks;
-    using Microsoft.VisualStudio.Web.CodeGeneration;
-    using ILogger = Microsoft.Extensions.Logging.ILogger;
 
     [Authorize]
     [Route("[controller]/[action]")]
@@ -100,19 +98,19 @@
             }
 
             var nameIsChanged = model.Name != user.Name;
-            var birthDateIsChanged = model.Birthdate != user.Birthdate;
+            var birthdateIsChanged = model.Birthdate != user.Birthdate;
 
             if (nameIsChanged)
             {
                 user.Name = model.Name;
             }
 
-            if (birthDateIsChanged)
+            if (birthdateIsChanged)
             {
                 user.Birthdate = model.Birthdate;
             }
-
-            if (nameIsChanged || birthDateIsChanged)
+            
+            if (nameIsChanged || birthdateIsChanged)
             {
                 await this._userManager.UpdateAsync(user);
             }
@@ -516,6 +514,6 @@
                 unformattedKey);
         }
 
-        #endregion Helpers
+        #endregion
     }
 }

@@ -1,26 +1,26 @@
 ﻿namespace LearningSystem.Web.Controllers
 {
     using Data.Models;
-    using Infrastructure.Constants;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Models.Trainer;
-    using Service.Interfaces;
+    using Services;
+    using Services.Models;
+    using System;
     using System.Threading.Tasks;
-    using Service.Models.Course;
 
-    [Authorize(Roles = WebConstants.TrainerRoleName)]
+    [Authorize(Roles = WebConstants.TrainerRole)]
     public class TrainerController : Controller
     {
         private readonly ITrainerService trainers;
-        private readonly UserManager<User> userManager;
         private readonly ICourseService courses;
+        private readonly UserManager<User> userManager;
 
         public TrainerController(
             ITrainerService trainers,
-            UserManager<User> userManager,
-            ICourseService courses)
+            ICourseService courses,
+            UserManager<User> userManager)
         {
             this.trainers = trainers;
             this.userManager = userManager;
@@ -42,7 +42,7 @@
             {
                 return NotFound();
             }
-
+            
             return View(new StudentsInCourseViewModel
             {
                 Students = await this.trainers.StudentsInCourseAsync(id),
@@ -56,7 +56,6 @@
             if (string.IsNullOrEmpty(studentId))
             {
                 return BadRequest();
-
             }
 
             var userId = this.userManager.GetUserId(User);
@@ -65,14 +64,48 @@
                 return BadRequest();
             }
 
-            var success = await this.trainers.AddGrade(id, studentId, grade);
+            var success = await this.trainers.AddGradeAsync(id, studentId, grade);
 
             if (!success)
             {
                 return BadRequest();
             }
 
-            return RedirectToAction(nameof(Students), new {id});
+            return RedirectToAction(nameof(Students), new { id });
+        }
+
+        public async Task<IActionResult> DownloadExam(int id, string studentId)
+        {
+            if (string.IsNullOrEmpty(studentId))
+            {
+                return BadRequest();
+            }
+
+            var userId = this.userManager.GetUserId(User);
+            if (!await this.trainers.IsTrainer(id, userId))
+            {
+                return BadRequest();
+            }
+
+            var examContents = await this.trainers.GetExamSubmissionAsync(id, studentId);
+
+            if (examContents == null)
+            {
+                return BadRequest();
+            }
+
+            var studentInCourseNames = await this.trainers
+                .StudentInCourseNamesAsync(id, studentId);
+
+            if (studentInCourseNames == null)
+            {
+                return BadRequest();
+            }
+            
+            return File(
+                examContents, 
+                "application/zip", 
+                $"{studentInCourseNames.CourseName}-{studentInCourseNames.Username}-{DateTime.UtcNow.ToString("MM-DD-yyyy")}.zip");
         }
     }
 }

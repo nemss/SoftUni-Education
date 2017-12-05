@@ -1,7 +1,7 @@
 ﻿namespace LearningSystem.Web.Infrastructure.Extensions
 {
     using Microsoft.Extensions.DependencyInjection;
-    using Service;
+    using Services;
     using System.Linq;
     using System.Reflection;
 

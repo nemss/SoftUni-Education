@@ -6,10 +6,10 @@
     {
         public string SearchText { get; set; }
 
-        [Display(Name = "Search In Courses")]
-        public bool IsSearchingInCourses { get; set; }
-
         [Display(Name = "Search In Users")]
-        public bool IsSearchingInUsers { get; set; }
+        public bool SearchInUsers { get; set; } = true;
+
+        [Display(Name = "Search In Courses")]
+        public bool SearchInCourses { get; set; } = true;
     }
 }

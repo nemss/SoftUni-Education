@@ -10,7 +10,7 @@
             : base(options)
         {
         }
-
+        
         public DbSet<Course> Courses { get; set; }
 
         public DbSet<Article> Articles { get; set; }
@@ -19,30 +19,30 @@
         {
             builder
                 .Entity<StudentCourse>()
-                .HasKey(sc => new { sc.CourseId, sc.StudentId });
+                .HasKey(st => new { st.CourseId, st.StudentId });
 
             builder
                 .Entity<StudentCourse>()
-                .HasOne(s => s.Student)
-                .WithMany(c => c.Courses)
+                .HasOne(sc => sc.Student)
+                .WithMany(s => s.Courses)
                 .HasForeignKey(sc => sc.StudentId);
-
+            
             builder
                 .Entity<StudentCourse>()
-                .HasOne(s => s.Course)
+                .HasOne(sc => sc.Course)
                 .WithMany(c => c.Students)
                 .HasForeignKey(sc => sc.CourseId);
 
             builder
                 .Entity<Course>()
                 .HasOne(c => c.Trainer)
-                .WithMany(t => t.Trainings)
-                .HasForeignKey(ct => ct.TrainerId);
+                .WithMany(u => u.Trainings)
+                .HasForeignKey(c => c.TrainerId);
 
             builder
                 .Entity<Article>()
                 .HasOne(a => a.Author)
-                .WithMany(a => a.Articles)
+                .WithMany(u => u.Articles)
                 .HasForeignKey(a => a.AuthorId);
 
             base.OnModelCreating(builder);

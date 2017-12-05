@@ -1,4 +1,3 @@
-@using LearningSystem.Data.Models
 @using Microsoft.AspNetCore.Identity
 @using LearningSystem.Web.Models
 
@@ -10,7 +9,7 @@
     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @{ var userName = UserManager.GetUserName(User);}
+                @{ var userName = UserManager.GetUserName(User); }
                 <a asp-area="" asp-controller="Users" asp-action="Profile" asp-route-username="@userName" title="Manage">Hello @userName!</a>
             </li>
             <li>

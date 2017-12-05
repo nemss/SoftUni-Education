@@ -17,10 +17,10 @@
 
             allTypes
                 .Where(t => t.IsClass && !t.IsAbstract && t
-                                .GetInterfaces()
-                                .Where(i => i.IsGenericType)
-                                .Select(i => i.GetGenericTypeDefinition())
-                                .Contains(typeof(IMapFrom<>)))
+                    .GetInterfaces()
+                    .Where(i => i.IsGenericType)
+                    .Select(i => i.GetGenericTypeDefinition())
+                    .Contains(typeof(IMapFrom<>)))
                 .Select(t => new
                 {
                     Destination = t,
@@ -41,8 +41,8 @@
 
             allTypes
                 .Where(t => t.IsClass
-                            && !t.IsAbstract
-                            && typeof(IHaveCustomMapping).IsAssignableFrom(t))
+                    && !t.IsAbstract
+                    && typeof(IHaveCustomMapping).IsAssignableFrom(t))
                 .Select(Activator.CreateInstance)
                 .Cast<IHaveCustomMapping>()
                 .ToList()

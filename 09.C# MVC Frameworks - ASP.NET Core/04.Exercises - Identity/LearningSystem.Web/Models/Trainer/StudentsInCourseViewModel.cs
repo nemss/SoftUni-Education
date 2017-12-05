@@ -1,7 +1,6 @@
 ﻿namespace LearningSystem.Web.Models.Trainer
 {
-    using Service.Models.Course;
-    using Service.Models.Trainers;
+    using Services.Models;
     using System.Collections.Generic;
 
     public class StudentsInCourseViewModel

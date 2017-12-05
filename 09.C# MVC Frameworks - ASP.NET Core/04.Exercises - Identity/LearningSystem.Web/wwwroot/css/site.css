@@ -27,14 +27,18 @@
 }
 
 .article-list li {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+}
+
+.pagination li.disabled a {
+    pointer-events: none;
 }
 
 .home-jumbotron {
     margin-top: 50px;
 }
 
-.home-page .img-responsive {
+.course-listings .img-responsive {
     height: 200px !important;
 }
 

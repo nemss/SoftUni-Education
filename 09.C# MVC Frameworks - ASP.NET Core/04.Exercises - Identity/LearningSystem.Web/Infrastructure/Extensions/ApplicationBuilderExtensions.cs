@@ -1,6 +1,5 @@
 ﻿namespace LearningSystem.Web.Infrastructure.Extensions
 {
-    using Constants;
     using Data;
     using Data.Models;
     using Microsoft.AspNetCore.Builder;
@@ -24,22 +23,20 @@
                 Task
                     .Run(async () =>
                     {
-                        var adminName = WebConstants.AdministratorRoleName;
-                        var trainerName = WebConstants.TrainerRoleName;
-                        var blogAuthorName = WebConstants.BlogAuthorRoleName;
+                        var adminName = WebConstants.AdministratorRole;
 
-                        var allRoles = new[]
+                        var roles = new[]
                         {
                             adminName,
-                            trainerName,
-                            blogAuthorName
+                            WebConstants.BlogAuthorRole,
+                            WebConstants.TrainerRole
                         };
 
-                        foreach (var role in allRoles)
+                        foreach (var role in roles)
                         {
-                            var roleExist = await roleManager.RoleExistsAsync(role);
+                            var roleExists = await roleManager.RoleExistsAsync(role);
 
-                            if (!roleExist)
+                            if (!roleExists)
                             {
                                 await roleManager.CreateAsync(new IdentityRole
                                 {
@@ -48,27 +45,28 @@
                             }
                         }
 
-                        var userName = "admin@admin.bg";
+                        var adminEmail = "admin@mysite.com";
 
-                        var adminUser = await userManager.FindByEmailAsync(userName);
+                        var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
                         if (adminUser == null)
                         {
                             adminUser = new User
                             {
-                                UserName = "Admin",
-                                Email = userName,
-                                Birthdate = DateTime.UtcNow,
-                                SecurityStamp = "Som3RandomValue"
+                                Email = adminEmail,
+                                UserName = adminName,
+                                Name = adminName,
+                                Birthdate = DateTime.UtcNow
                             };
 
-                            await userManager.CreateAsync(adminUser, "Admin12");
+                            await userManager.CreateAsync(adminUser, "admin12");
 
                             await userManager.AddToRoleAsync(adminUser, adminName);
                         }
                     })
                     .Wait();
             }
+
             return app;
         }
     }
