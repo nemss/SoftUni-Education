@@ -1,9 +1,9 @@
 ﻿namespace BookShop.Api.Infrastructure.Extensions
 {
-    using System.Linq;
-    using System.Reflection;
     using Microsoft.Extensions.DependencyInjection;
     using Services;
+    using System.Linq;
+    using System.Reflection;
 
     public static class ServiceCollectionExtensions
     {

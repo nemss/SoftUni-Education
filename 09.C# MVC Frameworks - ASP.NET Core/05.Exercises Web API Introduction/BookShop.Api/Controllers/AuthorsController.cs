@@ -1,11 +1,11 @@
 ﻿namespace BookShop.Api.Controllers
 {
-    using System.Threading.Tasks;
     using Infrastructure.Extensions;
     using Infrastructure.Filters;
     using Microsoft.AspNetCore.Mvc;
     using Models;
     using Services.Interfaces;
+    using System.Threading.Tasks;
     using static WebConstants;
 
     public class AuthorsController : BaseController
@@ -29,6 +29,5 @@
         [ValidateModelState]
         public async Task<IActionResult> Post([FromBody] AuthorRequestModel model)
             => Ok(await this.authors.Create(model.FirstName, model.LastName));
-
     }
 }

@@ -23,7 +23,7 @@
             services
                 .AddDbContext<BookShopDbContext>(options => options
                     .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
+
             services.AddDomainServices();
 
             services.AddAutoMapper();

@@ -1,12 +1,11 @@
-﻿namespace BookShop.Data.Models
+﻿namespace BookShop.Api.Models.Books
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using static DataConstants;
+    using static Data.DataConstants;
 
-    public class Book
+    public class CreateBookRequestModel
     {
         public int Id { get; set; }
 
@@ -32,8 +31,6 @@
 
         public int AuthorId { get; set; }
 
-        public Author Author { get; set; }
-
-        public ICollection<BookCategory> Categories { get; set; } = new List<BookCategory>();
+        public string Categories { get; set; }
     }
 }

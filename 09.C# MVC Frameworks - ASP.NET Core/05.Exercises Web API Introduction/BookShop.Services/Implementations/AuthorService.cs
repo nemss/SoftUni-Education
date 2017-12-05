@@ -27,8 +27,8 @@
                 LastName = lastName
             };
 
-             this.db.Add(author);
-             await this.db.SaveChangesAsync();
+            this.db.Add(author);
+            await this.db.SaveChangesAsync();
 
             return author.Id;
         }

@@ -1,10 +1,10 @@
 ﻿namespace BookShop.Services.Models.Author
 {
-    using System.Collections.Generic;
-    using System.Linq;
     using AutoMapper;
     using Common.Mapping;
     using Data.Models;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class AuthorDetailsServiceModel : IMapFrom<Author>, IHaveCustomMapping
     {
