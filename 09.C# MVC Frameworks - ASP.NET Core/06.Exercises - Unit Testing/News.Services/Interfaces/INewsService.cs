@@ -14,5 +14,7 @@
         Task<bool> Edit(int id, string title, string content, DateTime publishDate);
 
         Task<int> Delete(int id);
+
+        Task<NewsListingServiceModel> FindById(int id);
     }
 }

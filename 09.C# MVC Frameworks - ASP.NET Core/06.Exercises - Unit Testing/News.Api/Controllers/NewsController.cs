@@ -1,12 +1,14 @@
 ﻿namespace News.Api.Controllers
 {
+    using System.Security.Cryptography.X509Certificates;
     using Microsoft.AspNetCore.Mvc;
+    using Models;
     using Services.Interfaces;
     using System.Threading.Tasks;
-    using Models;
 
-    [Route("api/[controller]")]
-    public class NewsController : Controller
+    using static WebConstants;
+
+    public class NewsController : BaseController
     {
         private INewsService news;
 
@@ -28,6 +30,34 @@
             }
 
             var id = await this.news.Create(model.Title, model.Content, model.PusblishDate);
+
+            return Ok(id);
+        }
+
+        [HttpDelete(WithId)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var newss = await this.news.FindById(id);
+
+            if (newss == null)
+            {
+                return NotFound();
+            }
+
+            var newsId = await this.news.Delete(id);
+
+            return Ok(newsId);
+        }
+
+        [HttpPut(WithId)]
+        public async Task<IActionResult> Put(int id, [FromBody] NewsPutServiceModel model)
+        {
+            var success = await this.news.Edit(id, model.Title, model.Content, model.PusblishDate);
+
+            if (!success)
+            {
+                return BadRequest("Error!");
+            }
 
             return Ok(id);
         }

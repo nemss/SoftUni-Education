@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "News.Data", "News.Data\News.Data.csproj", "{BC74C05B-47E3-4090-9598-D8EF8DFF16B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "News.Data", "News.Data\News.Data.csproj", "{BC74C05B-47E3-4090-9598-D8EF8DFF16B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "News.Services", "News.Services\News.Services.csproj", "{A7968BE0-0E73-4958-98A7-56DB80AD37F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "News.Services", "News.Services\News.Services.csproj", "{A7968BE0-0E73-4958-98A7-56DB80AD37F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "News.Api", "News.Api\News.Api.csproj", "{540581F3-E233-40CE-9E81-97C910C44E99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "News.Api", "News.Api\News.Api.csproj", "{540581F3-E233-40CE-9E81-97C910C44E99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "News.Tests", "News.Tests\News.Tests.csproj", "{B7A1D6C6-0922-432D-951F-5A87BC82B74B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{540581F3-E233-40CE-9E81-97C910C44E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{540581F3-E233-40CE-9E81-97C910C44E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{540581F3-E233-40CE-9E81-97C910C44E99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A1D6C6-0922-432D-951F-5A87BC82B74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A1D6C6-0922-432D-951F-5A87BC82B74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A1D6C6-0922-432D-951F-5A87BC82B74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A1D6C6-0922-432D-951F-5A87BC82B74B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
